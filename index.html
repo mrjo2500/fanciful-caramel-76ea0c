@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>MR JOO • LIVE EXAM</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="stream-frame"></div>
+  <div class="backdrop"><div class="bokeh b1"></div><div class="bokeh b2"></div><div class="bokeh b3"></div></div>
+  <div class="ui" id="uiLayer">
+    <header class="topbar glass">
+      <div class="profile">
+        <div class="avatar-wrap"><img src="mrjoo-avatar.png" class="avatar" alt="MR JOO"></div>
+        <div><div class="name">MR JOO <span class="verified">✓</span></div><div class="bio">LIVE • Games • Fun • Knowledge</div></div>
+      </div>
+      <div class="live-pill"><i></i> LIVE</div>
+      <div class="viewers">◉ <b id="viewerCount">24.7K</b></div>
+      <div class="top-live">TikTok <small>LIVE</small><span>▮▮▮</span></div>
+    </header>
+
+    <div class="layout">
+      <aside class="left-col">
+        <section class="panel leaderboard">
+          <div class="panel-title">👑 Top Supporters <small>أعلى الداعمين</small></div>
+          <div id="supporterList"></div>
+        </section>
+        <section class="panel leaderboard">
+          <div class="panel-title">❤️ Top Likers <small>أعلى المكبسين</small></div>
+          <div id="likerList"></div>
+        </section>
+        <section class="panel chat-panel">
+          <div class="panel-title">💬 Live Chat</div>
+          <div id="commentList"></div>
+        </section>
+      </aside>
+
+      <main class="center-col">
+        <div class="brand"> <span class="crown">♛</span><strong>MR JOO</strong><small>PLAY • LEARN • WIN</small></div>
+        <div class="live-status"><span></span> سؤال <b id="qCount">001 / 500</b></div>
+
+        <section class="question-card" id="questionCard">
+          <div class="category" id="category">دين</div>
+          <div class="q-kicker">اختبار مباشر • اكتب الإجابة في الكومنت</div>
+          <div class="question" id="question">جارٍ تجهيز السؤال…</div>
+          <div class="emoji" id="emojiClue"></div>
+          <div class="answer-line"><span id="answerState">في انتظار الإجابات…</span></div>
+          <div class="word-grid hidden" id="wordGrid" aria-label="الحروف المساعدة"></div>
+          <div class="hint-note" id="hintNote">الحروف مخفية — حل السؤال من الكومنت.</div>
+        </section>
+
+        <div class="power-row">
+          <button class="power help" id="helpBtn"><span class="power-icon">👥</span><span><b>استعانة بصديق</b><small>تفتح بـ 10 🪙</small></span><strong>10</strong></button>
+          <div class="power arrow"><span class="power-icon">🌟</span><span><b>سهم الشهرة ×5</b><small>كل سهم = 1 🪙 • يفتح الحروف</small></span><strong id="arrowCount">0/5</strong></div>
+        </div>
+
+        <div class="impact-card" id="impactCard">⚡ إجابة صحيحة = اهتزاز + إضاءة + انتقال للسؤال التالي</div>
+      </main>
+
+      <aside class="right-col">
+        <section class="panel leaderboard">
+          <div class="panel-title">🔥 Top Actives <small>الأكثر تفاعلاً</small></div>
+          <div id="activeList"></div>
+        </section>
+        <section class="panel spotlight" id="spotlight">
+          <div class="spotlight-title">⭐ Spotlight</div>
+          <div class="spot-avatar"><img src="mrjoo-avatar.png" alt=""></div>
+          <div id="spotText">اللي بيجاوب صح اسمه يثبت على الشاشة ✨</div>
+        </section>
+        <section class="panel stats">
+          <div><b id="solvedCount">0</b><small>تم حلّه</small></div>
+          <div><b id="totalLikes">0</b><small>❤️ Likes</small></div>
+          <div><b id="totalSupport">0</b><small>🪙 Support</small></div>
+        </section>
+      </aside>
+    </div>
+
+    <footer class="bottom-bar glass">
+      <div class="connection"><span class="pulse"></span><b>TikFinity</b><span id="connection">جاري الاتصال…</span></div>
+      <div class="event-msg" id="eventMsg">مع كل تفاعل… الاسم والنقاط بتتحرك لحظيًا</div>
+      <div class="audio-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </footer>
+    <div class="toast" id="toast"></div>
+    <div class="pinned" id="sharePin"></div>
+    <div class="setup-modal" id="setupModal">
+      <div class="setup-box glass">
+        <div class="setup-title">☁️ MR JOO CLOUD LIVE</div>
+        <p>اربط اللعبة مباشرة بخدمة TikTok LIVE السحابية — بدون كمبيوتر وبدون TikFinity Desktop.</p>
+        <label>Username TikTok</label>
+        <input id="liveUsername" placeholder="مثال: mrjoo" autocomplete="off">
+        <div class="secure-note">🔐 الاتصال السحابي مؤمّن — مفتاح API محفوظ على Netlify وليس داخل اللعبة.</div>
+        <div class="setup-actions">
+          <button id="connectCloud">اتصال LIVE ☁️</button>
+          <button id="demoCloud" class="secondary">تجربة Demo</button>
+        </div>
+        <small>لا تحتاج لإدخال API Key أو Stream Key في الآيفون.</small>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
